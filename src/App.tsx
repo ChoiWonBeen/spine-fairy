@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import Stretching from "./assets/teststretching.gif";
+
+const Pharse = ["허리디스크 발생 시 수술비용은 평균...만원", "거북목 가능성이 3% 증가합니다"];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isStart, setIsStart] = useState(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      {!isStart ? (
+        <>
+          <h1>지금 스트레칭을 하지 않으면..</h1>
+          <h2>당신의 허리는 어떻게 될까요?</h2>
+          <h3>스트레칭을 하지 않으면...</h3>
+          <ul>
+            <li>허리디스크 발생 시 수술비용은 평균...만원</li>
+            <li>지팡이를 짚고 살 가능성이 3.6% 증가합니다</li>
+            <li>나빠진 시력은 돌아오지도 않는데...</li>
+          </ul>
+          <div>
+            <button onClick={() => setIsStart(true)}>앉아서 스트레칭</button>
+            <button>서서 스트레칭</button>
+            <button>허리를 망치기</button>
+          </div>
+        </>
+      ) : (
+        <img src={Stretching} />
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
